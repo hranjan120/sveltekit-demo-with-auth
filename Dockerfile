@@ -1,22 +1,16 @@
-FROM node:18.7-alpine AS build
-
+FROM node:18.7.0-alpine3.15 AS builder
 WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
 COPY . .
-RUN yarn
-RUN yarn build
+RUN npm run build && npm prune --production
 
-FROM nginx:1.18-alpine AS deploy-static
-
-WORKDIR /usr/share/nginx/html
-RUN rm -rf ./*
-COPY --from=build /app/build-static .
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
-
-FROM node:18-alpine AS deploy-node
-
+FROM node:18.7.0-alpine3.15
+USER node:node
 WORKDIR /app
-RUN rm -rf ./*
-COPY --from=build /app/package.json .
-COPY --from=build /app/build-node .
-RUN yarn --prod
-CMD ["node", "index.js"]
+COPY --from=builder --chown=node:node /app/build ./build
+COPY --from=builder --chown=node:node /app/node_modules ./node_modules
+COPY --chown=node:node package.json .
+ENV PORT 5050
+EXPOSE ${PORT}
+CMD ["node","build"]
