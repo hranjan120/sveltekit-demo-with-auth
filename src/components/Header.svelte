@@ -152,8 +152,6 @@
 								aria-labelledby="user-menu-button"
 								tabindex="-1"
 							>
-								<!-- Active: "bg-gray-100", Not Active: "" -->
-
 								<a
 									href="/user"
 									class="block px-4 py-2 text-sm text-gray-700"
