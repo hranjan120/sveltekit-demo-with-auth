@@ -33,5 +33,5 @@ jobs:
         #ECR_REPOSITORY: docker_nodejs_demo
         IMAGE_TAG: node_api_latest
       run: |
-        docker build -t $ECR_REGISTRY/ecs_frontend:$IMAGE_TAG -f Dockerfile --target deploy-node .
+        docker build -t $ECR_REGISTRY/ecs_frontend:$IMAGE_TAG .
         docker push $ECR_REGISTRY/ecs_frontend:$IMAGE_TAG
