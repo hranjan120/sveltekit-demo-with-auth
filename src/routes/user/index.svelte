@@ -22,7 +22,7 @@
 	export let loggedIn, admin;
 	let userDetail = null;
 	onMount(async () => {
-		const response = await getUserProfile(`http://localhost:9000/index/get-profile`, loggedIn);
+		const response = await getUserProfile(`http://3.111.56.162:8000/index/get-profile`, loggedIn);
 		if (response.statusCode === 'OK') {
 			userDetail = response.payload.userProfile;
 			console.log(response);

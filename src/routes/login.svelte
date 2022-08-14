@@ -26,7 +26,7 @@
 	const handleSubmit = async () => {
 		try {
 			await loginSchema.validate(values, { abortEarly: false });
-			const response = await postMethod(`http://localhost:9000/index/login`, values);
+			const response = await postMethod(`http://3.111.56.162:8000/index/login`, values);
 			if (response.statusCode === 'OK') {
 				$session.userToken = response.payload.userDetail.token;
 				goto('/');
