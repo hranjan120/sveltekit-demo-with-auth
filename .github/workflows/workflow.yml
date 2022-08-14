@@ -31,7 +31,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         #ECR_REPOSITORY: docker_nodejs_demo
-        IMAGE_TAG: node_api_latest
+        IMAGE_TAG: svelte_app_latest
       run: |
         docker build -t $ECR_REGISTRY/ecs_frontend:$IMAGE_TAG .
         docker push $ECR_REGISTRY/ecs_frontend:$IMAGE_TAG
