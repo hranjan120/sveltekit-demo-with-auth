@@ -30,4 +30,4 @@ jobs:
     - run: npm ci
     - run: npm run build
     # - run: npm test
-    #- run: pm2 reload 0
+    - run: pm2 reload 0
