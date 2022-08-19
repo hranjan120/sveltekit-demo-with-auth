@@ -15,7 +15,7 @@
 	import { session } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { postMethod } from '$lib/utils.js';
-
+	import { API_URL } from '$lib/env';
 	import loginSchema from '$lib/formValidation/loginForm';
 
 	let submitted = false;
@@ -26,7 +26,7 @@
 	const handleSubmit = async () => {
 		try {
 			await loginSchema.validate(values, { abortEarly: false });
-			const response = await postMethod(`http://3.111.56.162:8000/index/login`, values);
+			const response = await postMethod(`${API_URL}index/login`, values);
 			if (response.statusCode === 'OK') {
 				$session.userToken = response.payload.userDetail.token;
 				goto('/');
@@ -36,9 +36,11 @@
 			}
 			errors = {};
 		} catch (err) {
-			errors = err.inner.reduce((acc, err) => {
+			if(err.inner){
+				errors = err.inner.reduce((acc, err) => {
 				return { ...acc, [err.path]: err.message };
 			}, {});
+			}
 		}
 	};
 </script>

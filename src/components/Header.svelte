@@ -1,7 +1,7 @@
 <script>
 	import { session } from '$app/stores';
 	import { localPost } from '$lib/utils.js';
-	import { variables } from '$lib/variables';
+	import { BASE_URL } from '$lib/env';
 	let userDropdown = false;
 	let mobileDropdown = false;
 	function handleClick() {
@@ -12,7 +12,7 @@
 	}
 
 	async function logout() {
-		await localPost(`${variables.basePath}logoutUser/logout`);
+		await localPost(`${BASE_URL}logoutUser/logout`);
 		// this will trigger a redirect, because it
 		// causes the `load` function to run again
 		$session.userToken = null;
