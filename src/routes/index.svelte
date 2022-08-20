@@ -27,6 +27,7 @@
 
 	let toastinterval = null;
 	function startStuff(msg) {
+		clearInterval(toastinterval);
 		showMsg = msg;
 		showTost = true;
 		toastinterval = setInterval(stopStuff, 3000);
