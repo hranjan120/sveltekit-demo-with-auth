@@ -1,11 +1,12 @@
 <script>
 	import { TaskStore } from '../stores/TaskStore';
 	// let taskArr = [];
-	let showTost = false;
-	let showMsg = 'nbef ermnfrf ejrf ej';
 	// TaskStore.subscribe(value => {
 	// 	taskArr = value;
 	// });
+
+	let showTost = false;
+	let showMsg = '';
 
 	function addNewTask() {
 		const newTask = {
@@ -18,23 +19,20 @@
 	}
 
 	function removeTask(id) {
-		startStuff();
+		startStuff('Task Removed Successfully');
 		TaskStore.update((currData) => {
 			return currData.filter((itm) => itm.id !== id);
 		});
 	}
-	// let toastinterval = setInterval(showToast, 3000);
-	// function showToast() {
-	// 	showTost = true;
-	// 	clearInterval(toastinterval);
-	// }
 
 	let toastinterval = null;
-	function startStuff() {
+	function startStuff(msg) {
+		showMsg = msg;
 		showTost = true;
 		toastinterval = setInterval(stopStuff, 3000);
 	}
 	function stopStuff() {
+		showMsg = '';
 		showTost = false;
 		clearInterval(toastinterval);
 	}
