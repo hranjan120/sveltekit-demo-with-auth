@@ -21,7 +21,7 @@
 
 	let submitted = false;
 	let errors = {};
-	let values = {email: 'admin1@gmail.com', password: 'admin@123'};
+	let values = { email: 'admin1@gmail.com', password: 'admin@123' };
 	let apiErrors = null;
 
 	const handleSubmit = async () => {
@@ -38,10 +38,10 @@
 			}
 			errors = {};
 		} catch (err) {
-			if(err.inner){
+			if (err.inner) {
 				errors = err.inner.reduce((acc, err) => {
-				return { ...acc, [err.path]: err.message };
-			}, {});
+					return { ...acc, [err.path]: err.message };
+				}, {});
 			}
 		}
 	};
