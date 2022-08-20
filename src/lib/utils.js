@@ -29,3 +29,15 @@ export function localPost(endpoint, data) {
 		}
 	}).then((r) => r.json());
 }
+
+export function setJwtLocal(endpoint, data) {
+	console.log('qwertyu', data);
+	return fetch(endpoint, {
+		method: 'POST',
+		credentials: 'include',
+		body: JSON.stringify(data || {}),
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	}).then((r) => r.json());
+}

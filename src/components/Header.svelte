@@ -12,7 +12,7 @@
 	}
 
 	async function logout() {
-		await localPost(`${BASE_URL}logoutUser/logout`);
+		await localPost(`${BASE_URL}userAuthssr/logout`);
 		// this will trigger a redirect, because it
 		// causes the `load` function to run again
 		$session.userToken = null;

@@ -14,13 +14,14 @@
 <script>
 	import { session } from '$app/stores';
 	import { goto } from '$app/navigation';
-	import { postMethod } from '$lib/utils.js';
+	import { BASE_URL } from '$lib/env';
+	import { postMethod, setJwtLocal } from '$lib/utils.js';
 	import { API_URL } from '$lib/env';
 	import loginSchema from '$lib/formValidation/loginForm';
 
 	let submitted = false;
 	let errors = {};
-	let values = {};
+	let values = {email: 'admin1@gmail.com', password: 'admin@123'};
 	let apiErrors = null;
 
 	const handleSubmit = async () => {
@@ -28,6 +29,7 @@
 			await loginSchema.validate(values, { abortEarly: false });
 			const response = await postMethod(`${API_URL}index/login`, values);
 			if (response.statusCode === 'OK') {
+				await setJwtLocal(`${BASE_URL}userAuthssr/setCook`, response.payload.userDetail.token);
 				$session.userToken = response.payload.userDetail.token;
 				goto('/');
 			} else {

@@ -28,7 +28,7 @@
 			userDetail = response.payload.userProfile;
 			//console.log(response);
 		} else {
-			alert(apiErrors);
+			alert(response);
 		}
 	});
 </script>
