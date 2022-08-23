@@ -52,6 +52,46 @@
 	</div>
 {/if}
 
+<div class="carousel w-full">
+	<div id="slide1" class="carousel-item relative w-full">
+		<img src="https://placeimg.com/1200/200/nature" class="w-full" alt="Img" />
+	</div>
+	<div id="slide2" class="carousel-item relative w-full">
+		<img src="https://placeimg.com/1200/200/nature" class="w-full" alt="Img" />
+	</div>
+	<div id="slide3" class="carousel-item relative w-full">
+		<img src="https://placeimg.com/1200/200/nature" class="w-full" alt="Img" />
+	</div>
+	<div id="slide4" class="carousel-item relative w-full">
+		<img src="https://placeimg.com/1200/200/nature" class="w-full" alt="Img" />
+	</div>
+</div>
+<br />
+<br />
+<div class="h-96 carousel carousel-vertical rounded-box">
+	<div class="carousel-item h-full w-full">
+		<img src="https://placeimg.com/1200/200/animals" alt="Img" />
+	</div>
+	<div class="carousel-item h-full w-full">
+		<img src="https://placeimg.com/1200/200/animals" alt="Img" />
+	</div>
+	<div class="carousel-item h-full w-full">
+		<img src="https://placeimg.com/1200/200/animals" alt="Img" />
+	</div>
+	<div class="carousel-item h-full w-full">
+		<img src="https://placeimg.com/1200/200/animals" alt="Img" />
+	</div>
+	<div class="carousel-item h-full w-full">
+		<img src="https://placeimg.com/1200/200/animals" alt="Img" />
+	</div>
+	<div class="carousel-item h-full w-full">
+		<img src="https://placeimg.com/1200/200/animals" alt="Img" />
+	</div>
+	<div class="carousel-item h-full w-full">
+		<img src="https://placeimg.com/1200/200/animals" alt="Img" />
+	</div>
+</div>
+
 <div class="bg-white">
 	<div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
 		<h1>Welcome to SvelteKit 1</h1>
